@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripEase | Luxury Travel</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f0e8;
+    color: #263b38;
+    line-height: 1.6;
+}
+
+section {
+    padding: 85px 8%;
+}
+
+.small-heading {
+    color: #bd9460;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+.navbar {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #263b38;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #bd9460;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #263b38;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #bd9460;
+}
+
+
+
+
+.hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(20, 35, 32, 0.35),
+            rgba(20, 35, 32, 0.45)
+        ),
+        url("https://images.unsplash.com/photo-1518837695005-2083093ee35b")
+        center/cover no-repeat;
+
+    padding: 80px 8%;
+}
+
+.hero-content {
+    max-width: 600px;
+    color: white;
+}
+
+.hero-content .small-heading {
+    color: #e7c99c;
+}
+
+.hero-content h1 {
+    font-size: 65px;
+    line-height: 1.1;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 17px;
+    margin-bottom: 28px;
+    color: #f4f0e9;
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: #bd9460;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: white;
+    color: #263b38;
+}
+
+.glass-info {
+    position: absolute;
+    right: 8%;
+    bottom: 55px;
+
+    padding: 22px 28px;
+    max-width: 300px;
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 18px;
+    color: white;
+}
+
+.glass-info h3 {
+    margin-bottom: 5px;
+}
+
+.glass-info p {
+    font-size: 13px;
+}
+
+
+
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    color: #263b38;
+    margin: 10px 0;
+}
+
+.section-heading p {
+    color: #65736d;
+}
+
+
+
+.destinations {
+    padding-top: 90px;
+}
+
+.destination-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.destination-card {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    box-shadow: 0 10px 30px rgba(38, 59, 56, 0.08);
+    transition: 0.4s;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.destination-card:hover img {
+    transform: scale(1.08);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 25px 18px;
+
+    color: white;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.8)
+    );
+}
+
+.card-content h3 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.card-content p {
+    font-size: 13px;
+    color: #f1eee8;
+}
+
+
+
+
+.packages {
+    padding: 85px 8%;
+    text-align: center;
+}
+
+.package-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.package-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(38, 59, 56, 0.08);
+    transition: transform 0.3s ease;
+
+    text-align: left;
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+}
+
+.package-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.package-info {
+    padding: 22px;
+}
+
+.package-tag {
+    color: #bd9460;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.package-info h3 {
+    color: #263b38;
+    margin: 12px 0;
+    font-size: 21px;
+}
+
+.package-info p {
+    color: #65736d;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.package-info h4 {
+    color: #263b38;
+    margin: 18px 0;
+}
+
+.package-btn {
+    display: inline-block;
+    background: #263b38;
+    color: white;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.package-btn:hover {
+    background: #bd9460;
+}
+
+
+
+
+.about {
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(245, 240, 232, 0.85),
+            rgba(245, 240, 232, 0.9)
+        ),
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e")
+        center/cover no-repeat;
+}
+
+.about-content {
+    max-width: 750px;
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 22px;
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin: 12px 0 20px;
+}
+
+.about-content p {
+    color: #65736d;
+    margin-bottom: 12px;
+}
+
+
+
+
+.contact {
+    padding: 85px 8%;
+}
+
+.contact-container {
+    max-width: 650px;
+    margin: auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 22px;
+
+    box-shadow: 0 10px 30px rgba(38, 59, 56, 0.08);
+}
+
+.contact-form label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #263b38;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid rgba(38, 59, 56, 0.15);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.65);
+    color: #263b38;
+
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #bd9460;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+
+
+
+.footer {
+    padding: 50px 8% 20px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.footer p {
+    color: #65736d;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 22px 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #263b38;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #bd9460;
+}
+
+.footer .copyright {
+    border-top: 1px solid rgba(38, 59, 56, 0.12);
+    padding-top: 18px;
+    font-size: 12px;
+}
+
+
+
+
+@media (max-width: 1000px) {
+
+    .destination-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .package-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-content h1 {
+        font-size: 52px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .glass-info {
+        position: static;
+        margin-top: 35px;
+    }
+
+    .destination-container {
+        grid-template-columns: 1fr;
+    }
+
+    .package-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .about-content h2 {
+        font-size: 27px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .contact-form {
+        padding: 22px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+
+    <header class="navbar">
+        <h2 class="logo">Trip<span>Ease.</span></h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#packages">Packages</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <p class="small-heading">DISCOVER THE WORLD</p>
+
+            <h1>Travel Beyond<br>Ordinary.</h1>
+
+            <p>
+                Experience beautiful destinations, luxury stays
+                and unforgettable journeys with TripEase.
+            </p>
+
+            <a href="#destinations" class="main-btn">
+                Explore Destinations
+            </a>
+        </div>
+
+        <div class="glass-info">
+            <h3>Your Journey Begins Here</h3>
+            <p>Discover places. Create memories. Travel beautifully.</p>
+        </div>
+
+    </section>
+
+
+    
+    <section class="destinations" id="destinations">
+
+        <div class="section-heading">
+            <p class="small-heading">EXPLORE THE WORLD</p>
+            <h2>Popular Destinations</h2>
+            <p>Discover some of the world's most beautiful places.</p>
+        </div>
+
+        <div class="destination-container">
+
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1506377585622-bedcbb027afc"
+                     alt="Scotland">
+
+                <div class="card-content">
+                    <h3>Scotland</h3>
+                    <p>Castles, mountains and peaceful landscapes.</p>
+                </div>
+            </div>
+
+
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c"
+                     alt="Dubai">
+
+                <div class="card-content">
+                    <h3>Dubai</h3>
+                    <p>Luxury shopping, modern architecture and adventure.</p>
+                </div>
+            </div>
+
+
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b"
+                     alt="Germany">
+
+                <div class="card-content">
+                    <h3>Germany</h3>
+                    <p>Historic cities, culture and beautiful streets.</p>
+                </div>
+            </div>
+
+
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+                     alt="Switzerland">
+
+                <div class="card-content">
+                    <h3>Switzerland</h3>
+                    <p>Beautiful lakes and breathtaking mountain views.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    
+    <section class="packages" id="packages">
+
+        <div class="section-heading">
+            <p class="small-heading">TRAVEL YOUR WAY</p>
+            <h2>Our Luxury Packages</h2>
+            <p>Choose your next unforgettable journey.</p>
+        </div>
+
+        <div class="package-container">
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad"
+                     alt="Scotland landscape">
+
+                <div class="package-info">
+                    <span class="package-tag">POPULAR</span>
+                    <h3>Scotland Explorer</h3>
+                    <p>
+                        Explore beautiful castles, green valleys
+                        and peaceful landscapes.
+                    </p>
+                    <h4>5 Days / 4 Nights</h4>
+                    <a href="#contact" class="package-btn">
+                        Explore Package
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc"
+                     alt="Germany city">
+
+                <div class="package-info">
+                    <span class="package-tag">CULTURE</span>
+                    <h3>Germany Heritage Tour</h3>
+                    <p>
+                        Discover historic cities, beautiful
+                        architecture and culture.
+                    </p>
+                    <h4>6 Days / 5 Nights</h4>
+                    <a href="#contact" class="package-btn">
+                        Explore Package
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7"
+                     alt="Switzerland mountains">
+
+                <div class="package-info">
+                    <span class="package-tag">LUXURY</span>
+                    <h3>Switzerland Escape</h3>
+                    <p>
+                        Enjoy stunning mountain views, lakes
+                        and relaxing stays.
+                    </p>
+                    <h4>7 Days / 6 Nights</h4>
+                    <a href="#contact" class="package-btn">
+                        Explore Package
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    
+    <section class="about" id="about">
+
+        <div class="about-content">
+            <p class="small-heading">ABOUT TRIPEASE</p>
+
+            <h2>Making Every Journey Special</h2>
+
+            <p>
+                TripEase is a luxury travel website designed to
+                help travellers discover beautiful destinations
+                around the world.
+            </p>
+
+            <p>
+                From peaceful mountain escapes to exciting city
+                experiences, we bring travel inspiration together
+                in one place.
+            </p>
+        </div>
+
+    </section>
+
+
+    
+    <section class="contact" id="contact">
+
+        <div class="section-heading">
+            <p class="small-heading">GET IN TOUCH</p>
+            <h2>Plan Your Next Journey</h2>
+            <p>Have a destination in mind? Send us an inquiry.</p>
+        </div>
+
+        <div class="contact-container">
+
+            <form class="contact-form" id="inquiryForm">
+
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter your email" required>
+
+                <label for="destination">Preferred Destination</label>
+                <select id="destination" name="destination" required>
+                    <option value="">Choose a destination</option>
+                    <option>Scotland</option>
+                    <option>Dubai</option>
+                    <option>Germany</option>
+                    <option>Switzerland</option>
+                </select>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5"
+                          placeholder="Tell us about your travel plans" required></textarea>
+
+                <button type="submit" class="package-btn">
+                    Send Inquiry
+                </button>
+
+                <p id="formMessage"></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    
+    <footer class="footer">
+
+        <h2 class="logo">Trip<span>Ease.</span></h2>
+
+        <p>
+            Discover the world with comfort, style and unforgettable experiences.
+        </p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#packages">Packages</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <p class="copyright">
+            © 2026 TripEase. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <script>
+        const form = document.getElementById("inquiryForm");
+        const formMessage = document.getElementById("formMessage");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            formMessage.textContent =
+                "Thank you, " + name + "! Your inquiry has been received.";
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
